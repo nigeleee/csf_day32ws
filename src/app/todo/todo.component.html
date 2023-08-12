@@ -1,0 +1,27 @@
+<h1 style="color:orange;">To Do</h1>
+<div class="container">
+  <form [formGroup]="form" (ngSubmit)="addToList()">
+      <label class="form-label">Description:</label>
+      <textarea class="form-control" rows="3" formControlName="description"></textarea>
+      <br>
+        <label class="form-label">Priority:</label>
+        <div class="form-check">
+          <label class="form-check-label">High</label>
+          <input type="radio" class="form-check-input" formControlName="priority" value="High">
+        </div>
+        <div class="form-check">
+          <label class="form-check-label">Medium</label>
+          <input type="radio" class="form-check-input" formControlName="priority" value="Medium">
+        </div>
+        <div class="form-check">
+          <label class="form-check-label">Low</label>
+          <input type="radio" class="form-check-input" formControlName="priority" value="Low">
+        </div>
+        <br>
+        <label class="form-label">Due:</label>
+        <input type="date" class="form-control" formControlName="due">
+        <div class="my-3">
+          <button class="btn btn-outline-secondary" type="submit">Add</button>
+        </div>
+    </form>
+</div>

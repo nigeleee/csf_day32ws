@@ -1,0 +1,13 @@
+.prio {
+  margin-right: 10px;
+}
+
+.due {
+  margin-left: auto;
+}
+
+.info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}

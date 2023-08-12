@@ -1,0 +1,15 @@
+<h1 style="color:orange">Task</h1>
+<table class="table table-bordered">
+  <tbody *ngFor="let t of tasks">
+    <tr>
+      <td>
+        <h2 class="des">{{ t.description }}</h2>
+        <div class="info">
+          <i class="prio">{{ t.priority }}</i>
+          <p class="due">{{ t.due }}</p>
+        </div>
+      </td>
+    </tr>
+  </tbody>
+</table>
+

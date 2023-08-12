@@ -7,4 +7,13 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'paf_day32ws';
+
+  tasks: any[] = [];
+
+  addToList(event: any) {
+    console.log('Added to Tasks' + event);
+    this.tasks.push(event);
+  }
+
+  
 }
