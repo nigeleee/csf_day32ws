@@ -1,4 +1,4 @@
-<h1 style="color:orange;">To Do</h1>
+<!-- <h1 style="color:orange;">To Do</h1>
 <div class="container">
   <form [formGroup]="form" (ngSubmit)="addToList()">
       <label class="form-label">Description:</label>
@@ -24,4 +24,34 @@
           <button class="btn btn-outline-secondary" type="submit">Add</button>
         </div>
     </form>
-</div>
+</div> -->
+<h1 style="color:orange">To Do</h1>
+
+<form [formGroup]="form" (ngSubmit)="addToList()">
+  <mat-form-field hintLabel="Max 10 characters">
+    <mat-label>Description</mat-label>
+    <br>
+    <textarea matInput #description maxlength="10" formControlName="description"></textarea>
+    <mat-icon matSuffix>description</mat-icon>
+    <mat-hint align="end">{{ description.value.length }}/10</mat-hint>
+    <mat-error *ngIf="form.controls['description'].errors?.['required']" style="color:red">Field is required</mat-error>
+    <mat-error *ngIf="form.controls['description'].errors?.['maxlength']"></mat-error>
+  </mat-form-field>
+  <br><br>
+  <mat-radio-group formControlName="priority">
+    <mat-label>Priority</mat-label>
+    <mat-radio-button value="High">High</mat-radio-button>
+    <mat-radio-button value="Medium">Medium</mat-radio-button>
+    <mat-radio-button value="Low">Low</mat-radio-button>
+    <mat-error *ngIf="form.controls['priority'].errors?.['required']" style="color:red">Please select</mat-error>
+  </mat-radio-group>
+  <br><br>
+  <mat-form-field>
+    <mat-label>Due</mat-label>
+    <input matInput formControlName="due" [matDatepicker]="picker">
+    <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+  </mat-form-field>
+  <br>
+  <button mat-raised-button color="primary" type="submit">Add</button>
+</form>

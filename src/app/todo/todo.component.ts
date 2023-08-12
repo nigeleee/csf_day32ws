@@ -1,5 +1,5 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-todo',
@@ -21,9 +21,9 @@ export class TodoComponent implements OnInit {
 
   initialiseForm() {
     this.form = this.fb.group({
-      description: new FormControl(''),
-      priority: new FormControl('null'),
-      due: new FormControl('')
+      description: new FormControl('', [Validators.required, Validators.maxLength(10)]),
+      priority: new FormControl(null, [Validators.required]),
+      due: new FormControl(null, [Validators.required])
     })
   }
 
